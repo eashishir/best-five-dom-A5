@@ -5,10 +5,9 @@ function getInputFeildValueById(inpuFeildId) {
     // if (typeof inputFeildValue == ! 'number') {
     //     alert('Please vailed number')
     // }
-    inputFeild.value = '';
+    inputFeild.value = "";
     return inputFeildValue;
 }
-
 
 function getElementValueById(elementId) {
     const element = document.getElementById(elementId);
@@ -20,32 +19,38 @@ function getElementValueById(elementId) {
 
 function setTextElementValueById(elementId, newValue) {
     elmentText = document.getElementById(elementId);
-    elmentText.innerText = newValue
-
+    elmentText.innerText = newValue;
 }
 
-function upodatePlayerPrice(Total) {
+function upodatePlayerPrice(Total) { }
 
-}
+document.getElementById("btn-players").addEventListener("click", function () {
+    let totalPlayersPrice = 0;
+    const NewPriceingPlayer = getInputFeildValueById("players-feild");
 
+    totalPlayersPrice = NewPriceingPlayer * 5;
 
-document.getElementById('btn-players').addEventListener('click', function () {
-    const NewPriceingPlayer = getInputFeildValueById('players-feild');
+    const errorMsgNull = document.getElementById("error-msg-null");
+    const errorMsgNegative = document.getElementById("error-msg-neg");
+    if (NewPriceingPlayer >= 0) {
+        errorMsgNull.style.display = "none";
+        errorMsgNegative.style.display = "none";
+        setTextElementValueById("playeres-total", totalPlayersPrice);
+    }
+    else if (NewPriceingPlayer < 0) {
+        errorMsgNull.style.display = "none";
+        errorMsgNegative.style.display = "block";
 
-    const totalPlayersPrice = NewPriceingPlayer * 5;
+    } else {
+        errorMsgNull.style.display = "none";
+        errorMsgNegative.style.display = "block";
+    }
+});
 
-    const previousPlayerPriceTotal = getElementValueById('playeres-total');
-    let currentPlayersPriceToal = previousPlayerPriceTotal + totalPlayersPrice;
-    setTextElementValueById('playeres-total', currentPlayersPriceToal);
-
-
-
-})
-
-document.getElementById('btn-total').addEventListener('click', function () {
-    const previousPlayerPriceTotal = getElementValueById('playeres-total');
-    const previousTotal = getElementValueById('total-feild');
-    const currentTotal = previousTotal + previousPlayerPriceTotal + 2000 + 4000;
-    setTextElementValueById('total-feild', currentTotal);
-})
-
+document.getElementById("btn-total").addEventListener("click", function () {
+    const previousPlayerPriceTotal = getElementValueById("playeres-total");
+    // const previousTotal = getElementValueById('total-feild');
+    // const currentTotal = previousTotal + previousPlayerPriceTotal + 2000 + 4000;
+    const currentTotal = previousPlayerPriceTotal + 2000 + 4000;
+    setTextElementValueById("total-feild", currentTotal);
+});

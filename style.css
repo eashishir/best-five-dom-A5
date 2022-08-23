@@ -19,3 +19,12 @@ h1 {
     color: tomato;
     font-weight: 500;
 }
+
+.notify {
+    display: none;
+}
+
+#msg {
+    color: red;
+    text-align: center;
+}
