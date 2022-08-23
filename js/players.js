@@ -25,7 +25,7 @@ function setTextElementValueById(elementId, newValue) {
 function upodatePlayerPrice(Total) { }
 
 document.getElementById("btn-players").addEventListener("click", function () {
-    let totalPlayersPrice = 0;
+    // let totalPlayersPrice = 0;
     const NewPriceingPlayer = getInputFeildValueById("players-feild");
 
     totalPlayersPrice = NewPriceingPlayer * 5;
@@ -49,8 +49,26 @@ document.getElementById("btn-players").addEventListener("click", function () {
 
 document.getElementById("btn-total").addEventListener("click", function () {
     const previousPlayerPriceTotal = getElementValueById("playeres-total");
+    const managerPrice = getInputFeildValueById('manager-price');
+
+    const coachPrice = getInputFeildValueById('Coach-price');
     // const previousTotal = getElementValueById('total-feild');
     // const currentTotal = previousTotal + previousPlayerPriceTotal + 2000 + 4000;
-    const currentTotal = previousPlayerPriceTotal + 2000 + 4000;
-    setTextElementValueById("total-feild", currentTotal);
+    const currentTotal = previousPlayerPriceTotal + managerPrice + coachPrice;
+    const errorMsgNull = document.getElementById("error-msg-null");
+    const errorMsgNegative = document.getElementById("error-msg-neg");
+    if (coachPrice >= 0 && managerPrice >= 0) {
+        errorMsgNull.style.display = "none";
+        errorMsgNegative.style.display = "none";
+        setTextElementValueById("total-feild", currentTotal);
+    }
+    else if (coachPrice >= 0 && managerPrice >= 0) {
+        errorMsgNull.style.display = "none";
+        errorMsgNegative.style.display = "block";
+
+    } else {
+        errorMsgNull.style.display = "none";
+        errorMsgNegative.style.display = "block";
+    }
+    // setTextElementValueById("total-feild", currentTotal);
 });
