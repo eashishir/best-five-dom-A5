@@ -28,3 +28,7 @@ h1 {
     color: red;
     text-align: center;
 }
+
+.color {
+    background-color: darkgrey;
+}
