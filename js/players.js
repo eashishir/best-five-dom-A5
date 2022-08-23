@@ -1,10 +1,10 @@
+// common function 
+
 function getInputFeildValueById(inpuFeildId) {
     const inputFeild = document.getElementById(inpuFeildId);
     const inputFeildValueString = inputFeild.value;
     const inputFeildValue = parseFloat(inputFeildValueString);
-    // if (typeof inputFeildValue == ! 'number') {
-    //     alert('Please vailed number')
-    // }
+
     inputFeild.value = "";
     return inputFeildValue;
 }
@@ -22,7 +22,7 @@ function setTextElementValueById(elementId, newValue) {
     elmentText.innerText = newValue;
 }
 
-function upodatePlayerPrice(Total) { }
+// end the common part 
 
 document.getElementById("btn-players").addEventListener("click", function () {
     // let totalPlayersPrice = 0;
@@ -70,5 +70,5 @@ document.getElementById("btn-total").addEventListener("click", function () {
         errorMsgNull.style.display = "none";
         errorMsgNegative.style.display = "block";
     }
-    // setTextElementValueById("total-feild", currentTotal);
+
 });

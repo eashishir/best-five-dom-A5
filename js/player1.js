@@ -26,7 +26,7 @@ function addToTheCart(element) {
 
     if (cartArray.length > 4) {
         // document.getElementById("msg").innerText = "Added Max 5 player";
-        alert("Added Max 5 player")
+        alert("Added Max 5 Player")
     } else {
         // console.log(playerName);
         cartArray.push(playerName);
